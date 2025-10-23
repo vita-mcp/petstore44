@@ -1,0 +1,1 @@
+"FROM node:18-alpine\n\nWORKDIR /app\n\n# Copy package files\nCOPY package*.json ./\n\n# Install dependencies\nRUN npm install\n\n# Copy application files\nCOPY . .\n\n# Build the application\nRUN npm run build || echo \"No build script found\"\n\n# Expose port\nEXPOSE 3000\n\n# Start the application\nCMD [\"npm\", \"run\", \"start\"]\n"
